@@ -1,0 +1,145 @@
+@startuml
+class Productor{
+    - String nombre
+    - Direccion direccion
+    - List<Residuo> residuos;
+    - String TipoActividad
+    
+    + void producirResiduo(Residuo residuo);
+    + Residuo getResiduo(int id); 
+}
+
+class Direccion{
+    - String pais;
+    - String ciudad;
+    - String calle;
+    - String numero;
+}
+
+enum TipoResiduo{
+    CORROSIVO
+    REACTIVO
+    EXPLOSIVO
+    TOXICO
+    INFLAMABLE
+    INFECCIOSO
+    RADIACTIVO
+}
+
+class Residuo{
+    - String  id
+    - TipoResiduo tipoResiduo;
+    - double cantidadTotalKilos;
+    - List<Constituyente> constituyentes;
+    - Date FechaGeneracion;
+    - Envase envase;
+    - Productor productor;
+    - Translado traslado;
+    - TratamientoPosterior tratamientoPosterior;
+    - boolean huboIncidenteSeguridad
+}
+enum TipoConstituyente{
+    MATERIAL_CONTAMINADO
+    DISOLVENTE_HALOGENADO
+    DISOLVENTE_NO_HALOGENADO
+    ACIDO
+    BASE
+    METAL_PESADO
+    COMPUESTO_ORGANICO
+}
+
+
+class ConstituyenteQuimico{
+    - TipoConstituyente tipoConstituyente
+    - String nombre
+}
+
+enum TipoEnvase{
+    CAJA
+    RECIPIENTE
+    BALDE
+    BOLSA
+}
+
+enum EstadoUso{
+    NUEVO
+    EN_USO
+    DESECHADO
+}
+
+class Envase{
+    - TipoEnvase tipoEnvase;
+    - EstadoUso estadoUso;
+}
+
+class Transportista{
+    - String nombre;
+    - List <Traslado> traslados;
+    - List<MedioTransporte> mediosDeTrasporte
+}
+
+class TratamientoPosterior{
+    - String tipoTratamiento;
+    - Date fechaTratamiento;
+    - Residuo residuo;
+}
+
+enum TipoTraslado{
+TOTAL
+PARCIAL
+NO_TRANSLADADOS
+}
+
+class Traslado{
+    - Date fechaTranslado
+    - TipoTraslado tipoTraslado;
+    - boolean transladoSeguro;
+    - int cantidad;
+    - List<Transportista> transportistas;
+    - Residuo residuo
+    - Destino destno
+}
+
+enum TipoDestino {
+  PLANTA_RECICLAJE
+  PLANTA_DE_TRATAMIENTO_FISICO_QUIMCO
+  PLANTA_INCINERADORA
+  ALMACEN_TEMPORAL
+  CEMENTERA
+  VERTEDERO_DE_SEGURiDAD
+  DESTINO_INTERNACIONAL
+}
+
+class Destino{
+    - TipoDestino tipoDestino
+    - Date fechaLLegada
+    - Direccion direcionDestino
+}
+
+enum TipoTransporte {
+    MARITIMO
+    FERROVIARIO
+    TERRESTRE
+    AEREO
+}
+
+class MedioTransporte{
+    - String nombre;
+    - TipoTransporte tipo
+    - DatosTransporte datos;
+    - double distancia
+    - double coste 
+    - Transportista transportista
+}
+
+Productor "1" -- "*" Residuo : Generar
+Residuo "1" -- "*" Transportista: trasportado
+(Residuo , Transportista) .. Traslado : trasladado 
+Transportista "1" -- "*" MedioTransporte : Usa
+Residuo "1"  *-- "*" ConstituyenteQuimico : Esta compuesto
+Residuo "1" -- "1" Envase : Tiene
+Residuo "1" -- "1" TratamientoPosterior : Recibe 
+Productor "1" -- "1" Direccion : Tiene 
+Traslado "1" -- "1" Destino : Se dirige hacia
+Destino "1" -- "1" Direccion : Tiene
+@enduml
