@@ -74,6 +74,7 @@ class Envase{
     - String id
     - TipoEnvase tipoEnvase;
     - EstadoUso estadoUso;
+    - Residuo residuo;
 }
 
 class Transportista{

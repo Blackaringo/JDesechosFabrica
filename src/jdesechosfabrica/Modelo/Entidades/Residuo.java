@@ -166,6 +166,18 @@ public class Residuo {
     public void setHuboIncidenteSeguridad(boolean huboIncidenteSeguridad) {
         this.huboIncidenteSeguridad = huboIncidenteSeguridad;
     }
-        
-        
+
+    public Envase getEnvase() {
+        return envase;
+    }
+
+    public void setEnvase(Envase envase) {
+        if (envase.getResiduo() != this && envase.getResiduo() != null){
+            throw new IllegalArgumentException("El envase ya tiene otro residuo asociado");
+        }
+        if(envase.getResiduo()==null){
+            envase.setResiduo(this);
+        }
+        this.envase = envase;
+    }      
 }
