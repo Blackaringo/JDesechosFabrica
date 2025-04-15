@@ -4,6 +4,7 @@
  */
 package jdesechosfabrica.Modelo.Entidades;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import jdesechosfabrica.Constantes.TipoResiduo;
@@ -27,7 +28,10 @@ public class Residuo {
 
     public Residuo(String id, TipoResiduo tipoResiduo, double cantidadTotalKilos, List<ConstituyenteQuimico> constituyentes, Date FechaGeneracion, Productor productor) {
         
-         if (tipoResiduo== null ){
+        if (id== null || id.trim().isEmpty()){
+            String mensaje = "Al crear un residuo se requiere un identificador valido";
+            throw new IllegalArgumentException(mensaje);
+        } else if (tipoResiduo== null ){
             String mensaje = "Al crear un residuo se requiere un tipo de residuo valido";
             throw new IllegalArgumentException(mensaje);
         }else if (constituyentes == null || constituyentes.isEmpty()){
@@ -70,14 +74,51 @@ public class Residuo {
         this.cantidadTotalKilos = cantidadTotalKilos;
     }
 
+
+   public void addConstituyente(ConstituyenteQuimico constituyente){
+       constituyentes.add(constituyente);
+   }
+   
+    public void addConstituyentes(List<ConstituyenteQuimico> constituyentes) {
+        if (constituyentes == null || constituyentes.isEmpty()){
+            throw new IllegalArgumentException("No se puede agregar un constituyentes nulos.");
+        }
+        this.constituyentes.addAll(constituyentes);
+    }
+    
+   
+    public ConstituyenteQuimico getConstituyente(String id){
+         for(ConstituyenteQuimico constituyente : constituyentes){
+            if(constituyente.getId().trim().equals(id.trim())){
+                return constituyente;
+            }
+        }
+        return null;
+    }
+
     public List<ConstituyenteQuimico> getConstituyentes() {
-        return constituyentes;
+        return new ArrayList<>(constituyentes);
     }
+   
+   public void removeConstituyente(String id){
+       if (constituyentes.size() <=1){
+           throw new IllegalStateException("Un residuo debe tener al menos un Constituyente quimico.");
+       }
+       constituyentes.removeIf(constituyente -> constituyente.getId().trim().equals(id.trim()));
+   }
+   
+   public void removeConstituyentes(List<String> ids){
+       if(ids == null || ids.isEmpty()) {
+            throw new IllegalArgumentException("La lista no puede estar vacia");
+        }
+       
+       if(constituyentes.size() <= ids.size()){
+           throw new IllegalStateException("Un residuo debe tener al menos un constituyente quimico.");
+       }
+       constituyentes.removeIf(constituyente -> ids.contains(constituyente.getId().trim()));
 
-    public void setConstituyentes(List<ConstituyenteQuimico> constituyentes) {
-        this.constituyentes = constituyentes;
-    }
-
+   }
+   
     public Date getFechaGeneracion() {
         return FechaGeneracion;
     }

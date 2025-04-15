@@ -4,6 +4,7 @@
  */
 package jdesechosfabrica.Modelo.Entidades;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import jdesechosfabrica.Constantes.TipoResiduo;
@@ -35,9 +36,14 @@ public class Productor {
         this.TipoActividad = TipoActividad;
     }
 
+
     public void producirResiduo(String id, TipoResiduo tipoResiduo, double cantidadTotalKilos, List<ConstituyenteQuimico> constituyentes, Date FechaGeneracion){
             Residuo residuo = new Residuo(id, tipoResiduo, cantidadTotalKilos, constituyentes, FechaGeneracion, this);
             this.residuos.add(residuo);
+    }
+    
+    public List<Residuo> getResiduos() {
+        return new ArrayList<>(residuos);
     }
     
     public Residuo getResiduo(String id){
@@ -47,6 +53,14 @@ public class Productor {
             }
         }
         return null;
+    }
+    
+    public void removeResiduo(String id){
+        residuos.removeIf(residuo -> residuo.getId().trim().equals(id.trim()));
+    }
+    
+    public void removeResiduos(List<String> ids){
+        residuos.removeIf(residuo -> ids.contains(residuo.getId().trim()));
     }
     
     public String getNombre() {
