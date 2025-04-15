@@ -34,12 +34,18 @@ public class Productor {
         this.nombre = nombre;
         this.direccion = direccion;
         this.TipoActividad = TipoActividad;
+        residuos = new ArrayList<>();
     }
 
 
-    public void producirResiduo(String id, TipoResiduo tipoResiduo, double cantidadTotalKilos, List<ConstituyenteQuimico> constituyentes, Date FechaGeneracion){
-            Residuo residuo = new Residuo(id, tipoResiduo, cantidadTotalKilos, constituyentes, FechaGeneracion, this);
-            this.residuos.add(residuo);
+    public void producirResiduo(Residuo residuo){
+        if(residuo == null ){
+            throw new IllegalArgumentException("El residuo no puede ser nulo");
+        }
+         if(residuo.getProductor() != this){
+              throw new IllegalArgumentException("El residuo ya tiene un productor asociado");
+         }
+          this.residuos.add(residuo);
     }
     
     public List<Residuo> getResiduos() {

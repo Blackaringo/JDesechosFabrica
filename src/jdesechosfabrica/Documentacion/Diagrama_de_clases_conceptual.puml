@@ -6,7 +6,7 @@ class Productor{
     - List<Residuo> residuos;
     - String TipoActividad
     
-    + void producirResiduo(String id, TipoResiduo tipoResiduo, double cantidadTotalKilos, List<ConstituyenteQuimico> constituyentes, Date FechaGeneracion);
+    + void producirResiduo(Residuo residuo);
     + Residuo getResiduo(string id); 
 }
 
@@ -83,9 +83,16 @@ class Transportista{
     - List<MedioTransporte> mediosDeTrasporte
 }
 
+enum TipoTratamiento{
+    FISICO,
+    QUIMICO,
+    BIOLOGICO,
+    TERMICO
+}
+
 class TratamientoPosterior{
     - String id
-    - String tipoTratamiento;
+    - TipoTratamiento tipoTratamiento;
     - Date fechaTratamiento;
     - Residuo residuo;
 }

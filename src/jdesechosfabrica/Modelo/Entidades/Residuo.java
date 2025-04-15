@@ -19,8 +19,8 @@ public class Residuo {
         private double cantidadTotalKilos;
         private List<ConstituyenteQuimico> constituyentes;
         private Date FechaGeneracion;
-        private Envase envase;
         private Productor productor;
+        private Envase envase;
         private Traslado traslado;
         private TratamientoPosterior tratamientoPosterior;
         private boolean huboIncidenteSeguridad;
@@ -48,6 +48,11 @@ public class Residuo {
         this.constituyentes = constituyentes;
         this.FechaGeneracion = FechaGeneracion;
         this.productor = productor;
+        envase=null;
+        traslado=null;
+        tratamientoPosterior=null;
+        huboIncidenteSeguridad=false;
+        productor.producirResiduo(this);
     }
 
     public String getId() {
@@ -148,6 +153,9 @@ public class Residuo {
     }
 
     public void setTratamientoPosterior(TratamientoPosterior tratamientoPosterior) {
+        if (tratamientoPosterior.getResiduo()!=this){
+               throw new IllegalArgumentException("El tratamiento posterior tiene otro residuo asociado");
+        }
         this.tratamientoPosterior = tratamientoPosterior;
     }
 
