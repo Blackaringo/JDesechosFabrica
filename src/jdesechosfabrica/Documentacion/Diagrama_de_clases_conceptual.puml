@@ -80,7 +80,7 @@ class Envase{
 class Transportista{
     - String id
     - String nombre;
-    - List <Traslado> traslados;
+    - Traslado traslado;
     - List<MedioTransporte> mediosDeTrasporte
 }
 
