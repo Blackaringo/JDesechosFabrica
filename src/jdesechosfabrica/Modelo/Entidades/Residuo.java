@@ -145,7 +145,7 @@ public class Residuo {
     }
 
     public void setTraslado(Traslado traslado) {
-        if (traslado.getResiduo()!=this){
+        if (traslado.getResiduo()!=this && traslado.getResiduo() != null){
                throw new IllegalArgumentException("El traslado tiene otro residuo asociado");
         }
         this.traslado = traslado;

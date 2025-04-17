@@ -56,6 +56,7 @@ public class Traslado {
         this.transportistas = transportistas;
         
         residuo.setTraslado(this);
+        destino.setTraslado(this);
     }
 
     public String getId() {
@@ -114,11 +115,14 @@ public class Traslado {
         this.residuo = residuo;
     }
 
-    public Destino getDestno() {
+    public Destino getDestino() {
         return destino;
     }
 
-    public void setDestno(Destino destno) {
+    public void setDestino(Destino destno) {
+        if (destino.getTraslado() != this && destino.getTraslado() != null){
+            throw new IllegalArgumentException("El destino ya tiene otro traslado asociado");
+        }
         this.destino = destno;
     }
     
