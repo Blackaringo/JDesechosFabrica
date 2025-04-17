@@ -53,6 +53,11 @@ public class Traslado {
         this.cantidad = cantidad;
         this.destino = destino;
         this.residuo = residuo;
+        
+        for(Transportista transportista: transportistas){
+            transportista.setTraslado(this);
+        }
+        
         this.transportistas = transportistas;
         
         residuo.setTraslado(this);

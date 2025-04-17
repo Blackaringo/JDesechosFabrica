@@ -143,7 +143,6 @@ class MedioTransporte{
     - String id
     - String nombre;
     - TipoTransporte tipo
-    - DatosTransporte datos;
     - double distancia
     - double coste 
     - Transportista transportista
