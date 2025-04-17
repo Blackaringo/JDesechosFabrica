@@ -17,12 +17,12 @@ public class Traslado {
     private Date fechaTranslado;
     private TipoTraslado tipoTraslado;
     private boolean transladoSeguro;
-    private int cantidad;
+    private double  cantidad;
     private List<Transportista> transportistas;
     private Residuo residuo;
     private Destino destino;    
 
-    public Traslado(String id, Date fechaTranslado, TipoTraslado tipoTraslado, boolean transladoSeguro, int cantidad, List<Transportista> transportistas, Residuo residuo, Destino destino) {
+    public Traslado(String id, Date fechaTranslado, TipoTraslado tipoTraslado, boolean transladoSeguro, double cantidad, List<Transportista> transportistas, Residuo residuo, Destino destino) {
          if (id== null || id.trim().isEmpty()){
             String mensaje = "el traslado requiere un id valido";
             throw new IllegalArgumentException(mensaje);
@@ -96,7 +96,7 @@ public class Traslado {
         this.transladoSeguro = transladoSeguro;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 

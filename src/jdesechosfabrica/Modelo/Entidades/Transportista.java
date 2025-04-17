@@ -69,4 +69,9 @@ public class Transportista {
         this.mediosDeTrasporte = mediosDeTrasporte;
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
 }

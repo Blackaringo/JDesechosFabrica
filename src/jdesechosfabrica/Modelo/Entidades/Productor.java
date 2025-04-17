@@ -92,6 +92,11 @@ public class Productor {
     public void setTipoActividad(String TipoActividad) {
         this.TipoActividad = TipoActividad;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
         
         
 }

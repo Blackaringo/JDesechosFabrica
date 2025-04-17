@@ -29,7 +29,7 @@ public class Destino {
         }else if (tipoDestino== null ){
             String mensaje = "Al crear un translado se requiere un tipo de  traslado valido";
             throw new IllegalArgumentException(mensaje);
-        }else if(direcionDestino == null){
+        }else if(direccionDestino == null){
             String mensaje = "se requiere una direccion de destino valida  para crear el destino";
             throw new IllegalArgumentException(mensaje);
         }

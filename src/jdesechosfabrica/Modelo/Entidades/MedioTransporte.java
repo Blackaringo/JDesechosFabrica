@@ -84,6 +84,11 @@ public class MedioTransporte {
     public void setTransportista(Transportista transportista) {
         this.transportista = transportista;
     }
+
+    @Override
+    public String toString() {
+        return tipo +" " + nombre;
+    }
     
     
 }

@@ -183,4 +183,11 @@ public class Residuo {
         }
         this.envase = envase;
     }      
+
+    @Override
+    public String toString() {
+        return "Residuo{" + "id=" + id + ", tipoResiduo=" + tipoResiduo + '}';
+    }
+    
+    
 }

@@ -35,15 +35,12 @@ public class Envase {
         residuo =null;
     }
     
-        public Envase(String id, TipoEnvase tipoEnvase, EstadoUso estadoUso, Residuo residuo) {
+        public Envase(String id, TipoEnvase tipoEnvase, Residuo residuo) {
          if (id== null || id.trim().isEmpty()){
             String mensaje = "Al crear un envase se requiere un identificador valido";
             throw new IllegalArgumentException(mensaje);
         } else if (tipoEnvase== null ){
             String mensaje = "Al crear un envase se requiere un tipo de envase valido";
-            throw new IllegalArgumentException(mensaje);
-        }else if (estadoUso== null ){
-            String mensaje = "Al crear un envase se requiere un estado de uso valido";
             throw new IllegalArgumentException(mensaje);
         }else if (residuo== null ){
             String mensaje = "el residuo no debe ser nulo";
@@ -52,8 +49,9 @@ public class Envase {
         
         this.id = id;
         this.tipoEnvase = tipoEnvase;
-        this.estadoUso = estadoUso;
+        this.estadoUso = EstadoUso.EN_USO;
         this.residuo =residuo;
+        residuo.setEnvase(this);
     }
 
     public String getId() {
@@ -92,6 +90,11 @@ public class Envase {
             residuo.setEnvase(this);
         }
         this.residuo = residuo;
+    }
+
+    @Override
+    public String toString() {
+        return tipoEnvase + " " + estadoUso;
     }
             
 }
