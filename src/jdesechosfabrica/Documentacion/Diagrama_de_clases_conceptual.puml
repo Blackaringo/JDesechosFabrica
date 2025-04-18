@@ -1,12 +1,13 @@
 @startuml
 class Productor{
+    - String id
     - String nombre
     - Direccion direccion
     - List<Residuo> residuos;
     - String TipoActividad
     
     + void producirResiduo(Residuo residuo);
-    + Residuo getResiduo(int id); 
+    + Residuo getResiduo(string id); 
 }
 
 class Direccion{
@@ -50,14 +51,15 @@ enum TipoConstituyente{
 
 
 class ConstituyenteQuimico{
+    - String id;
     - TipoConstituyente tipoConstituyente
     - String nombre
 }
 
 enum TipoEnvase{
-    CAJA
-    RECIPIENTE
-    BALDE
+    CAJA,
+    RECIPIENTE,
+    BALDE,
     BOLSA
 }
 
@@ -68,18 +70,29 @@ enum EstadoUso{
 }
 
 class Envase{
+    - String id
     - TipoEnvase tipoEnvase;
     - EstadoUso estadoUso;
+    - Residuo residuo;
 }
 
 class Transportista{
+    - String id
     - String nombre;
-    - List <Traslado> traslados;
+    - Traslado traslado;
     - List<MedioTransporte> mediosDeTrasporte
 }
 
+enum TipoTratamiento{
+    FISICO,
+    QUIMICO,
+    BIOLOGICO,
+    TERMICO
+}
+
 class TratamientoPosterior{
-    - String tipoTratamiento;
+    - String id
+    - TipoTratamiento tipoTratamiento;
     - Date fechaTratamiento;
     - Residuo residuo;
 }
@@ -91,6 +104,7 @@ NO_TRANSLADADOS
 }
 
 class Traslado{
+    - String id
     - Date fechaTranslado
     - TipoTraslado tipoTraslado;
     - boolean transladoSeguro;
@@ -111,6 +125,7 @@ enum TipoDestino {
 }
 
 class Destino{
+    - String id
     - TipoDestino tipoDestino
     - Date fechaLLegada
     - Direccion direcionDestino
@@ -124,17 +139,17 @@ enum TipoTransporte {
 }
 
 class MedioTransporte{
+    - String id
     - String nombre;
     - TipoTransporte tipo
-    - DatosTransporte datos;
     - double distancia
     - double coste 
     - Transportista transportista
 }
 
 Productor "1" -- "*" Residuo : Generar
-Residuo "1" -- "*" Transportista: trasportado
-(Residuo , Transportista) .. Traslado : trasladado 
+Residuo "1" -- "1" Traslado : Transportar
+Traslado "1" -- "*" Transportista : Participan
 Transportista "1" -- "*" MedioTransporte : Usa
 Residuo "1"  *-- "*" ConstituyenteQuimico : Esta compuesto
 Residuo "1" -- "1" Envase : Tiene
