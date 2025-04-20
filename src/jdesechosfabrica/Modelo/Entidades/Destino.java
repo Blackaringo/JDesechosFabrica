@@ -84,5 +84,10 @@ public class Destino {
         }
         this.traslado = traslado;
     }
+
+    @Override
+    public String toString() {
+        return "Destino " +  id + " de tipo " + tipoDestino + " rumbo a "  + direcionDestino + " Con fecha de llegada " + fechaLLegada;
+    }
                 
 }
