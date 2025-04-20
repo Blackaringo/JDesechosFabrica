@@ -71,6 +71,11 @@ public class TratamientoPosterior {
     public void setResiduo(Residuo residuo) {
         this.residuo = residuo;
     }
+
+    @Override
+    public String toString() {
+        return "Tratamiento Posterior "  + id + " de tipo " + tipoTratamiento + " en la fecha " + fechaTratamiento;
+    }
     
     
 }

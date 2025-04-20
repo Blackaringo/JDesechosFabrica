@@ -130,6 +130,12 @@ public class Traslado {
         }
         this.destino = destno;
     }
+
+    @Override
+    public String toString() {
+        String seguro =  transladoSeguro?"Si":"No";
+        return "Traslado " + "de tipo " + tipoTraslado + "Seguro " +seguro + " cantidad " + cantidad + "kg";
+    }
     
     
 }

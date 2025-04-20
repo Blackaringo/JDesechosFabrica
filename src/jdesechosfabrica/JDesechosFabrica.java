@@ -136,12 +136,8 @@ public class JDesechosFabrica {
                 String seguro = residuo.getTraslado().isTransladoSeguro()?"Si":"No";
                 System.out.println(seguro);
                 System.out.println("Los datos del destino son: ");
-                System.out.println("tipo destino: ");
-                System.out.println( residuo.getTraslado().getDestino().getTipoDestino());
-                System.out.println("Fecha llegada:");
-                System.out.println( residuo.getTraslado().getDestino().getFechaLLegada());
-                System.out.println("Direccion destino:");
-                System.out.println( residuo.getTraslado().getDestino().getDirecionDestino());
+                System.out.println( residuo.getTraslado().getDestino());
+
 
 
             }
