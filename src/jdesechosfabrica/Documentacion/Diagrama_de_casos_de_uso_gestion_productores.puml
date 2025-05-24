@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+
+package Gestion_De_Productores{
+    (Registro de Productores) as CU1
+    (Consultar Productor) as CU2
+    (Consultar Mis Residuos Producidos ) as CU3 /' consultar residuos producidos por el productor'/
+    (Consultar mis residuos por fecha) as CU4
+    (Consultar mis residuos por rango de fechas) as CU5
+    (Consultar mi cantidad de Residuos) as CU6 /'consulta la cantidad de residuos producidos por el productor'/
+    (Mostrar productores con incremento en produccion de residuos en el ultimo año)
+    (Mostrar productores con disminución en produccion de residuos en el ultimo año)
+    (Mostrar productores con menor indice de cumplimiento normativas ambientales)
+    (Mostrar productores con mayor indice de cumplimiento normativas ambientales)
+    (Listar mis constituyentes quimicos) /'Lista los constituyentes quimicos presentes en los residuos producidos por la empresa productora'/
+    (Editar datos Productor) as CU9
+    (Listar Productor) as CU10
+
+    CU3 <|-- CU4
+    CU3 <|-- CU5
+
+
+    admin --> Gestion_De_Productores
+}
+@enduml
