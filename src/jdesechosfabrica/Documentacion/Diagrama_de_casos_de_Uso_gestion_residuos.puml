@@ -1,0 +1,54 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+
+package Gestion_De_Residuos{
+    (Registro de Residuos) as CU1
+    (Asignación de codigos a Residuos) as CU2
+    (Consultar Residuo) as CU3
+    (consultar residuo por codigo) as CU4 
+    (Consultar Residuos por tipo residuo)  as CU5
+    (Consultar Residuos por tipo constituyente)  as CU6
+    (Consultar Residuo por tipo envase)  as CU7
+    (Consultar Residuo por productor )  as CU8
+    (Consultar Residuo por tratamiento posterior)  as CU20
+
+    (Editar datos residuo) as CU9
+    (Listar Residuo) as CU10
+    (Listar Residuos por tipo residuo)  as CU11
+    (Listar Residuos por tipo constituyente)  as CU12
+    (Listar Residuo por tipo envase)  as CU13
+    (Listar Residuo por productor )  as CU14
+    (Listar Residuos mas comunes) as CU15
+    (Listar residuo por fecha) as CU16    
+    (Listar residuo por rango de fechas) as CU17
+    (Listar Residuo por tratamiento posterior)  as CU18
+
+    (Obtener Promedio de constituyentes por tipo de Residuo) as CU19
+
+    (Mostrar informacion detallada de un residuo) as CU21
+
+   
+    CU1 --> CU2 : Include
+    CU3 <|-- CU4
+    CU3 <|-- CU5
+    CU3 <|-- CU6
+    CU3 <|-- CU7
+    CU3 <|-- CU8    
+    CU3 <|-- CU20
+
+    CU9 --> CU3 : Include
+    CU10 <|-- CU11
+    CU10 <|-- CU12
+    CU10 <|-- CU13
+    CU10 <|-- CU14
+    CU10 <|-- CU15    
+    CU10 <|-- CU16
+    CU10 <|-- CU17
+    CU10 <|-- CU18   
+    CU19  --> CU6 : Include
+    CU21 --> CU3 : Include
+    admin --> Gestion_De_Residuos
+}
+@enduml

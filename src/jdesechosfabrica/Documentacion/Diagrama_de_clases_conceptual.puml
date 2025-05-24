@@ -54,6 +54,7 @@ class ConstituyenteQuimico{
     - String id;
     - TipoConstituyente tipoConstituyente
     - String nombre
+    - List<Residuo> residuos 
 }
 
 enum TipoEnvase{
@@ -151,7 +152,7 @@ Productor "1" -- "*" Residuo : Generar
 Residuo "1" -- "1" Traslado : Transportar
 Traslado "1" -- "*" Transportista : Participan
 Transportista "1" -- "*" MedioTransporte : Usa
-Residuo "1"  *-- "*" ConstituyenteQuimico : Esta compuesto
+Residuo "*"  -- "*" ConstituyenteQuimico : Esta compuesto
 Residuo "1" -- "1" Envase : Tiene
 Residuo "1" -- "1" TratamientoPosterior : Recibe 
 Productor "1" -- "1" Direccion : Tiene 
