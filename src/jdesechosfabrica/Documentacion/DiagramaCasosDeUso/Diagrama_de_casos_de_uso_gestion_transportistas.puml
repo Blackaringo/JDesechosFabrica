@@ -1,0 +1,25 @@
+@startuml
+
+left to right direction
+
+actor Administrador as admin
+
+package Gestion_De_Transportistas{
+    (Registro de Transportistas) as CU1
+    (consultar transportistas por nombre) as  CU2
+    (consultar Transportistas por id) as CU3
+    
+    (Editar datos Transportista) as CU4
+    (Listar Transportistas) as CU5
+    (Listar transportistas por tipo de medio de transporte)  as CU6
+    (Obtener la empresa transportista con la mayor cantidad de traslados completados exitosamente) as CU7
+    (obtener total de kilomentros recorridos por una empresa transportista) as CU8
+    (Eliminar Transportista) as CU9
+
+    CU9 --> CU3: Include    
+    CU4 --> CU3: Include
+    CU5 <|-- CU6
+
+    admin <--> Gestion_De_Transportistas
+}
+@enduml

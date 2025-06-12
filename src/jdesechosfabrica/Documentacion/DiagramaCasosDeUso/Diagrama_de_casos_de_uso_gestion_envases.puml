@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+package Gestion_De_Envases{
+
+    (Registro de Envases) as CU1
+    (consultar Envase por id) as CU2
+
+    (Editar datos Envase) as CU6
+    (Listar Envases) as CU7
+    (Listar envases mas utilizados) as CU8
+    (Eliminar envase) as CU9
+
+    CU9 --> CU2 : Include
+    CU6 --> CU2 : Include
+    CU7 <|-- CU8
+    admin <--> Gestion_De_Envases
+}
+   @enduml

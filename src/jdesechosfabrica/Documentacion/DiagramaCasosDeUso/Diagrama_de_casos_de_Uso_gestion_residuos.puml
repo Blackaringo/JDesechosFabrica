@@ -28,7 +28,9 @@ package Gestion_De_Residuos{
     (Obtener Promedio de constituyentes por tipo de Residuo) as CU19
 
     (Mostrar informacion detallada de un residuo) as CU21
+    (Eliminar Residuo) as CU22
 
+    CU22--> CU3 : Include
    
     CU1 --> CU2 : Include
     CU3 <|-- CU4

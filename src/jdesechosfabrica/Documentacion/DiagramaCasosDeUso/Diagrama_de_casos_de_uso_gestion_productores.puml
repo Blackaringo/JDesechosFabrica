@@ -4,6 +4,7 @@ left to right direction
 actor Administrador as admin
 
 package Gestion_De_Productores{
+
     (Registro de Productores) as CU1
     (Consultar Productor) as CU2
     (Consultar Mis Residuos Producidos ) as CU3 /' consultar residuos producidos por el productor'/
@@ -17,9 +18,13 @@ package Gestion_De_Productores{
     (Listar mis constituyentes quimicos) /'Lista los constituyentes quimicos presentes en los residuos producidos por la empresa productora'/
     (Editar datos Productor) as CU9
     (Listar Productor) as CU10
+    (Eliminar productor) as CU11
+
+    CU11 --> CU2 : Include
 
     CU3 <|-- CU4
     CU3 <|-- CU5
+    CU9 --> CU2:Include
 
 
     admin --> Gestion_De_Productores

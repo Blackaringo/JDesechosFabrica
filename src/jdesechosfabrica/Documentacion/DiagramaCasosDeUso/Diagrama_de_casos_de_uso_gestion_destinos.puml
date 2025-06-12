@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+package Gestion_De_Destinos{
+
+    (Registro de Destinos) as CU1
+    (consultar Destino por id) as CU2
+
+    (Editar datos Destino) as CU6
+    (Listar Destinos) as CU7
+    (Listar Destinos por rango de fechas) as CU8
+    (Listar Destinos Finales mas frecuentes) as CU9
+    (Eliminar Destinos) as CU10
+
+
+    CU7 <|-- CU8
+    CU6 --> CU2 : Include
+    CU10 --> CU2 : Include
+    admin <--> Gestion_De_Destinos
+
+}
+   @enduml
