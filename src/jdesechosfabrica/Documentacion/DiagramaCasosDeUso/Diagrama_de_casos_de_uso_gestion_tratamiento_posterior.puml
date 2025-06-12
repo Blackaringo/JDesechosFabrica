@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+package Gestion_De_Tratamiento_Posterior{
+
+    (Registro de Tratamiento posterior) as CU1
+    (consultar Tratamiento posterior por id) as CU2
+
+    (Editar datos Tratamiento posterior) as CU3
+    (Listar Tratamientos posteriores) as CU4
+    (Listar Tratamientos posteriores por tipo destino) as CU5
+
+    (Obtener tiempo promedio entre la generacion de residuos y su tratamiento final) as CU6
+   
+    (Eliminar Tratamiento Posterior) as CU7
+
+    CU7 --> CU2 : Include
+    CU3 --> CU2 : Include
+    CU4 <|-- CU5
+    admin <--> Gestion_De_Tratamiento_Posterior
+
+}
+@enduml

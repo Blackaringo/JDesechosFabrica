@@ -1,0 +1,21 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+package Gestion_De_Constituyentes_Quimicos{
+
+    (Registro de Constituyente Quimico) as CU1
+    (consultarConstituyente Quimico por id) as CU2
+
+    (Editar datos Constituyente Quimico) as CU6
+    (Listar Constituyente Quimico) as CU7
+    (Listar Constituyente Quimico por tipo) as CU8
+
+    (Eliminar Constituyente Quimico) as CU9
+
+    CU7 <|-- CU8
+    CU6 --> CU2 : Include
+    CU9 --> CU2: Include
+    admin <--> Gestion_De_Constituyentes_Quimicos
+}
+@enduml

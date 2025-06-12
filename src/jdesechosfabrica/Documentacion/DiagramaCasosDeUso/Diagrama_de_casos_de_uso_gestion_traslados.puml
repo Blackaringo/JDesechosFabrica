@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+
+actor Administrador as admin
+
+package Gestion_De_Traslados{
+    (Registro de Traslados) as CU1
+    (consultar Traslado por id) as CU3
+    
+    (Obtener Cantidad de residuos Trasladados parcialmente) as CU4
+    (Mostrar cantidad minima y maxima de residuos trasladados) as CU5
+    (Editar datos Traslado) as CU6
+    (Listar Traslados) as CU7
+    (Listar Traslados seguros)  as CU8
+    (Listar traslados con incidentes)  as CU9
+    (Listar traslados por medio transporte)  as CU10
+    (Listar Traslados por destino final)  as CU11
+    (Listar Traslado por tipo traslado)  as CU12
+    (Listar Traslados ordenados por fecha de llegada)  as CU13
+    (Listar Traslados por empresa transportista) as CU14
+    (Listar Traslados con costes por encima del promedio) as CU15    
+    (Listar Traslado por rango de fechas) as CU16
+    (Listar Traslados ordenados por cantidad de residuos trasladados)  as CU17
+    (Listar los constituyentes químicos presentes en los residuos trasladados en un rango de fechas específico) as CU18
+    (Obtener Cantidad de residuos trasladados en el ultimo mes) as CU19
+    (Eliminar traslado) as CU20
+
+    CU20 --> CU3 : Include
+    CU6 --> CU3: Include
+
+    CU7 <|- CU8   
+    CU7 <|- CU9
+    CU7 <|- CU10
+    CU7 <|- CU11
+    CU7 <|- CU12
+    CU7 <|- CU13
+    CU7 <|- CU14
+    CU7 <|- CU15
+    CU7 <|- CU16
+    CU7 <|- CU17
+
+    admin <--> Gestion_De_Traslados
+}
+@enduml
