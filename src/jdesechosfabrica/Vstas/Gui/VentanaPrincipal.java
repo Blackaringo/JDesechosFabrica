@@ -4,6 +4,11 @@
  */
 package jdesechosfabrica.Vstas.Gui;
 
+import jdesechosfabrica.Vstas.Gui.ConstituyenteQuimico.VentanaCrearConstituyente;
+import jdesechosfabrica.Vstas.Gui.Productores.VentanaCrearProductor;
+import jdesechosfabrica.Vstas.Gui.Productores.VentanaListarProductor;
+import jdesechosfabrica.Vstas.Gui.Residuos.VentanaCrearResiduo;
+
 /**
  *
  * @author HP
@@ -28,21 +33,72 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         menuProductores = new javax.swing.JMenu();
+        menuItemCrearProductor = new javax.swing.JMenuItem();
+        menuItemEditarProductor = new javax.swing.JMenuItem();
+        menuItemListarProductor = new javax.swing.JMenuItem();
         menuResiduos = new javax.swing.JMenu();
+        maneItemCrearResiduo = new javax.swing.JMenuItem();
+        menuConstituyenteQuimico = new javax.swing.JMenu();
+        menuItemCrearConstituyente = new javax.swing.JMenuItem();
         menuTraslados = new javax.swing.JMenu();
         menuTratamientoPosterior = new javax.swing.JMenu();
         menuDestino = new javax.swing.JMenu();
         menuEnvase = new javax.swing.JMenu();
         menuTransportista = new javax.swing.JMenu();
-        menuConstituyenteQuimico = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuProductores.setText("Productores");
+        menuProductores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProductoresActionPerformed(evt);
+            }
+        });
+
+        menuItemCrearProductor.setText("Crear ...");
+        menuItemCrearProductor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCrearProductorActionPerformed(evt);
+            }
+        });
+        menuProductores.add(menuItemCrearProductor);
+
+        menuItemEditarProductor.setText("Editar");
+        menuProductores.add(menuItemEditarProductor);
+
+        menuItemListarProductor.setText("Listar ...");
+        menuItemListarProductor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemListarProductorActionPerformed(evt);
+            }
+        });
+        menuProductores.add(menuItemListarProductor);
+
         jMenuBar1.add(menuProductores);
 
         menuResiduos.setText("Residuos");
+
+        maneItemCrearResiduo.setText("Crear ...");
+        maneItemCrearResiduo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maneItemCrearResiduoActionPerformed(evt);
+            }
+        });
+        menuResiduos.add(maneItemCrearResiduo);
+
         jMenuBar1.add(menuResiduos);
+
+        menuConstituyenteQuimico.setText("Constituyente Quimico");
+
+        menuItemCrearConstituyente.setText("Crear ...");
+        menuItemCrearConstituyente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCrearConstituyenteActionPerformed(evt);
+            }
+        });
+        menuConstituyenteQuimico.add(menuItemCrearConstituyente);
+
+        jMenuBar1.add(menuConstituyenteQuimico);
 
         menuTraslados.setText("Traslado");
         jMenuBar1.add(menuTraslados);
@@ -59,9 +115,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         menuTransportista.setText("Transportista");
         jMenuBar1.add(menuTransportista);
 
-        menuConstituyenteQuimico.setText("Constituyente Quimico");
-        jMenuBar1.add(menuConstituyenteQuimico);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,6 +130,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuProductoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProductoresActionPerformed
+
+    }//GEN-LAST:event_menuProductoresActionPerformed
+
+    private void menuItemCrearProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearProductorActionPerformed
+        VentanaCrearProductor ventana = new VentanaCrearProductor(this, true);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_menuItemCrearProductorActionPerformed
+
+    private void menuItemListarProductorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemListarProductorActionPerformed
+           VentanaListarProductor ventana = new VentanaListarProductor(this, true);
+           ventana.setLocationRelativeTo(this);
+           ventana.setVisible(true);
+    }//GEN-LAST:event_menuItemListarProductorActionPerformed
+
+    private void maneItemCrearResiduoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maneItemCrearResiduoActionPerformed
+        VentanaCrearResiduo ventana = new VentanaCrearResiduo(this, true);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_maneItemCrearResiduoActionPerformed
+
+    private void menuItemCrearConstituyenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCrearConstituyenteActionPerformed
+        VentanaCrearConstituyente ventana = new VentanaCrearConstituyente(this, true);
+        ventana.setLocationRelativeTo(this);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_menuItemCrearConstituyenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -115,9 +196,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem maneItemCrearResiduo;
     private javax.swing.JMenu menuConstituyenteQuimico;
     private javax.swing.JMenu menuDestino;
     private javax.swing.JMenu menuEnvase;
+    private javax.swing.JMenuItem menuItemCrearConstituyente;
+    private javax.swing.JMenuItem menuItemCrearProductor;
+    private javax.swing.JMenuItem menuItemEditarProductor;
+    private javax.swing.JMenuItem menuItemListarProductor;
     private javax.swing.JMenu menuProductores;
     private javax.swing.JMenu menuResiduos;
     private javax.swing.JMenu menuTransportista;

@@ -13,6 +13,7 @@ import jdesechosfabrica.Pruebas.Dao.ResiduoDaoTest;
 import jdesechosfabrica.Pruebas.Dao.TransportistaDaoTest;
 import jdesechosfabrica.Pruebas.Dao.TrasladoDaoTest;
 import jdesechosfabrica.Pruebas.Dao.TratamientoPosteriorDaoTest;
+import jdesechosfabrica.Vstas.Gui.VentanaPrincipal;
 
 /**
  *
@@ -24,7 +25,11 @@ public class JDesechosFabrica {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+        VentanaPrincipal ventanaPrincipal = new VentanaPrincipal();
+        ventanaPrincipal.setExtendedState(VentanaPrincipal.MAXIMIZED_BOTH);
+        ventanaPrincipal.setVisible(true);
+                
+        /*
         System.out.println("Prueba del proyecto");
         System.out.println("###############################");
         System.out.println("Prueba Productor");
@@ -116,6 +121,6 @@ public class JDesechosFabrica {
         DestinoDaoTest.buscarDestinoPorIDDebemostrarLaInformacionDelDestino();
         DestinoDaoTest.eliminarDestinoDebeEliminarDestinoSinError();
         DestinoDaoTest.mostrarTodosLosDestinosDebeMostrarTodosLosDestinosEnElSistema();
-        
+        */
     }
 }
