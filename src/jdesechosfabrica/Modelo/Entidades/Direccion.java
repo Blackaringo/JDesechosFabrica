@@ -48,6 +48,14 @@ public class Direccion  implements Serializable{
         this.ciudad = ciudad;
     }
 
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
     public String getCalle() {
         return calle;
     }

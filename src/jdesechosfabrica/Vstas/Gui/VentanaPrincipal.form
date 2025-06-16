@@ -8,11 +8,62 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Productores"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuProductoresActionPerformed"/>
+          </Events>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemCrearProductor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear ..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemCrearProductorActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemEditarProductor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Editar"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemListarProductor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Listar ..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemListarProductorActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuResiduos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Residuos"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="maneItemCrearResiduo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear ..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="maneItemCrearResiduoActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuConstituyenteQuimico">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Constituyente Quimico"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemCrearConstituyente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Crear ..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemCrearConstituyenteActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuTraslados">
           <Properties>
@@ -37,11 +88,6 @@
         <Menu class="javax.swing.JMenu" name="menuTransportista">
           <Properties>
             <Property name="text" type="java.lang.String" value="Transportista"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="menuConstituyenteQuimico">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Constituyente Quimico"/>
           </Properties>
         </Menu>
       </SubComponents>
